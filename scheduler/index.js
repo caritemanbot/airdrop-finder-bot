@@ -1,8 +1,7 @@
 const cron = require("node-cron");
-const { checkTONNews } = require("../modules/news");
 
 cron.schedule("*/10 * * * *", () => {
-    checkTONNews();
+  console.log("⏰ Scheduler is running...");
 });
 
-console.log("Scheduler started.");
+console.log("✅ Scheduler started.");
