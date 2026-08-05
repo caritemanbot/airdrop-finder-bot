@@ -2,7 +2,7 @@ const cron=require("node-cron");
 
 const sources=require("../modules/sources");
 
-const demo=require("../modules/news/sources/demo");
+const newsdata=require("../modules/news/sources/newsdata");
 
 const {processNews}=require("../modules/news");
 
