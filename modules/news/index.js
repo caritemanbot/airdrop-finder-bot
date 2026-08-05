@@ -3,6 +3,7 @@ const bot=require("../../services/telegram");
 const {GROUP_ID}=require("../../config/config");
 
 const {saveNews}=require("../../services/database/news");
+const { summarizeNews } = require("../ai/gemini");
 
 async function processNews(items){
 
@@ -10,6 +11,10 @@ async function processNews(items){
 
         const isNew=await saveNews(item);
 
+        const aiResult = await summarizeNews(
+  item.title,
+  item.description || ""
+);
         if(!isNew) continue;
 
         await bot.sendMessage(
