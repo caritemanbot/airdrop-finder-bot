@@ -14,13 +14,3 @@ model News {
   source    String
   createdAt DateTime @default(now())
 }
-
-model Airdrop {
-  id        Int      @id @default(autoincrement())
-  title     String
-  url       String   @unique
-  reward    String?
-  network   String
-  deadline  DateTime?
-  createdAt DateTime @default(now())
-}
