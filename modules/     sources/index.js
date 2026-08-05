@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 class SourceManager {
   constructor() {
     this.sources = [];
@@ -7,7 +5,6 @@ class SourceManager {
 
   register(source) {
     this.sources.push(source);
-    console.log(`✅ Source loaded: ${source.name}`);
   }
 
   async fetchAll() {
@@ -17,8 +14,8 @@ class SourceManager {
       try {
         const data = await source.fetch();
         results.push(...data);
-      } catch (err) {
-        console.error(`❌ ${source.name}: ${err.message}`);
+      } catch (e) {
+        console.error(e.message);
       }
     }
 
