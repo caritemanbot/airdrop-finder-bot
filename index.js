@@ -3,26 +3,26 @@ require("dotenv").config();
 const bot = require("./services/telegram");
 require("./scheduler");
 
-console.log("🚀 TON Radar is running...");
+console.log("🚀 TON Radar Bot is online!");
 
 bot.onText(/\/start/, (msg) => {
   bot.sendMessage(
     msg.chat.id,
 `🚀 Welcome to TON Radar!
 
-Your automated TON ecosystem assistant.
+The ultimate TON ecosystem assistant.
 
-Available modules
-
-📰 TON News
-🚀 Airdrops
-🛡 Scam Detection
-📊 Polls
-🏆 Reputation
-🤖 AI Assistant
+✅ Auto TON News
+✅ Auto Airdrop Alerts
+✅ TON Project Updates
+✅ Scam Detection
+✅ Wallet Tracking
+✅ AI Assistant
 
 Monitoring is active 24/7.`
   );
 });
 
-bot.on("polling_error", console.log);
+bot.on("polling_error", (error) => {
+  console.error(error.message);
+});
