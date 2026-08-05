@@ -1,18 +1,21 @@
-const cron = require("node-cron");
+const cron=require("node-cron");
 
-const sources = require("../modules/sources");
-const demo = require("../modules/news/sources/demo");
+const sources=require("../modules/sources");
+
+const demo=require("../modules/news/sources/demo");
+
+const {processNews}=require("../modules/news");
 
 sources.register(demo);
 
-cron.schedule("*/10 * * * *", async () => {
+cron.schedule("*/10 * * * *",async()=>{
 
-    console.log("Checking sources...");
+    console.log("Checking news...");
 
-    const news = await sources.fetchAll();
+    const data=await sources.fetchAll();
 
-    console.log(news);
+    await processNews(data);
 
 });
 
-console.log("Scheduler started.");
+console.log("Scheduler Started");
