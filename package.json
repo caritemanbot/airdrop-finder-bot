@@ -1,7 +1,7 @@
 {
   "name": "airdrop-finder-bot",
   "version": "1.0.0",
-  "description": "Telegram Airdrop Finder AI",
+  "description": "Telegram bot for TON ecosystem airdrops and news",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
