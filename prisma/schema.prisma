@@ -12,5 +12,25 @@ model News {
   title     String
   url       String   @unique
   source    String
+  sent      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Project {
+  id        Int      @id @default(autoincrement())
+  name      String
+  website   String?
+  network   String
+  createdAt DateTime @default(now())
+}
+
+model Airdrop {
+  id        Int      @id @default(autoincrement())
+  title     String
+  url       String   @unique
+  reward    String?
+  deadline  String?
+  network   String
+  sent      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
