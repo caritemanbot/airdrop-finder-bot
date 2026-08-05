@@ -5,17 +5,18 @@ class SourceManager {
 
   register(source) {
     this.sources.push(source);
+    console.log(`Loaded: ${source.name}`);
   }
 
   async fetchAll() {
-    const results = [];
+    let results = [];
 
     for (const source of this.sources) {
       try {
         const data = await source.fetch();
         results.push(...data);
-      } catch (e) {
-        console.error(e.message);
+      } catch (err) {
+        console.error(err.message);
       }
     }
 
