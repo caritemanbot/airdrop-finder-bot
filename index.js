@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const bot = require("./services/telegram");
+require("./scheduler");
 
 console.log("🚀 TON Radar is running...");
 
