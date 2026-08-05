@@ -1,39 +1,27 @@
 require("dotenv").config();
 
-const TelegramBot = require("node-telegram-bot-api");
+const bot = require("./services/telegram");
 
-const token = process.env.BOT_TOKEN;
-
-if (!token) {
-  throw new Error("BOT_TOKEN is missing.");
-}
-
-const bot = new TelegramBot(token, {
-  polling: true,
-});
-
-console.log("🚀 Airdrop Finder Bot is now online!");
+console.log("🚀 TON Radar is running...");
 
 bot.onText(/\/start/, (msg) => {
   bot.sendMessage(
     msg.chat.id,
-`👋 Welcome to Airdrop Finder!
+`🚀 Welcome to TON Radar!
 
-Your all-in-one Telegram bot for discovering TON ecosystem opportunities.
+Your automated TON ecosystem assistant.
 
-Features:
-🚀 Latest Airdrops
+Available modules
+
 📰 TON News
-📊 Community Polls
-🛡 Scam Link Detection
-📅 Event Reminders
-🏆 Reputation System
-🤖 AI Assistant (Coming Soon)
+🚀 Airdrops
+🛡 Scam Detection
+📊 Polls
+🏆 Reputation
+🤖 AI Assistant
 
-Stay tuned for automatic updates!`
+Monitoring is active 24/7.`
   );
 });
 
-bot.on("polling_error", (error) => {
-  console.error(error.message);
-});
+bot.on("polling_error", console.log);
