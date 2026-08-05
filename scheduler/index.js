@@ -6,7 +6,7 @@ const newsdata=require("../modules/news/sources/newsdata");
 
 const {processNews}=require("../modules/news");
 
-sources.register(demo);
+sources.register(newsdata);
 
 cron.schedule("*/10 * * * *",async()=>{
 
